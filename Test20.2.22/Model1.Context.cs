@@ -27,5 +27,6 @@ namespace Test20._2._22
     
         public virtual DbSet<Course> Courses { get; set; }
         public virtual DbSet<Student> Students { get; set; }
+        public virtual DbSet<Student_screen> Student_screen { get; set; }
     }
 }

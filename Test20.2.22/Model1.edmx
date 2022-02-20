@@ -25,9 +25,20 @@
           <Property Name="BirthDate" Type="datetime" Nullable="false" />
           <Property Name="RegisterDate" Type="datetime" Nullable="false" />
         </EntityType>
+        <EntityType Name="Student_screen">
+          <Key>
+            <PropertyRef Name="student_id" />
+          </Key>
+          <Property Name="student_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="student_id_num" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="course" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="registration_date" Type="datetime" Nullable="false" />
+          <Property Name="grade" Type="int" Nullable="false" />
+        </EntityType>
         <EntityContainer Name="collegeModelStoreContainer">
           <EntitySet Name="Course" EntityType="Self.Course" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Student" EntityType="Self.Student" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Student_screen" EntityType="Self.Student_screen" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
       </Schema>
     </edmx:StorageModels>
@@ -54,9 +65,20 @@
           <Property Name="BirthDate" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="RegisterDate" Type="DateTime" Nullable="false" Precision="3" />
         </EntityType>
+        <EntityType Name="Student_screen">
+          <Key>
+            <PropertyRef Name="student_id" />
+          </Key>
+          <Property Name="student_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="student_id_num" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="course" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="registration_date" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="grade" Type="Int32" Nullable="false" />
+        </EntityType>
         <EntityContainer Name="collegeEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Courses" EntityType="Self.Course" />
           <EntitySet Name="Students" EntityType="Self.Student" />
+          <EntitySet Name="Student_screen" EntityType="Self.Student_screen" />
         </EntityContainer>
       </Schema>
     </edmx:ConceptualModels>
@@ -83,6 +105,17 @@
                 <ScalarProperty Name="IdNum" ColumnName="IdNum" />
                 <ScalarProperty Name="BirthDate" ColumnName="BirthDate" />
                 <ScalarProperty Name="RegisterDate" ColumnName="RegisterDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Student_screen">
+            <EntityTypeMapping TypeName="collegeModel.Student_screen">
+              <MappingFragment StoreEntitySet="Student_screen">
+                <ScalarProperty Name="student_id" ColumnName="student_id" />
+                <ScalarProperty Name="student_id_num" ColumnName="student_id_num" />
+                <ScalarProperty Name="course" ColumnName="course" />
+                <ScalarProperty Name="registration_date" ColumnName="registration_date" />
+                <ScalarProperty Name="grade" ColumnName="grade" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
